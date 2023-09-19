@@ -211,7 +211,7 @@ figure {
             color: #0c8af0; }
 
 .container-wrap {
-  max-width: 1970px;
+  max-width: 1370px;
   margin: 0 auto; }
 
 #colorlib-main {
@@ -278,7 +278,7 @@ figure {
       z-index: 9; }
       #colorlib-hero .flexslider .slider-text > .slider-text-inner {
         display: table-cell;
-        vertical-align: bottom;
+        vertical-align: middle;
         min-height: 700px;
         padding: 2.5em;
         position: relative; }
@@ -856,7 +856,7 @@ body.offcanvas {
 .blog-entry {
   width: 100%;
   float: left;
-  background: #ffffff;
+  background: #fff;
   margin-bottom: 3em; }
   @media screen and (max-width: 768px) {
     .blog-entry {
