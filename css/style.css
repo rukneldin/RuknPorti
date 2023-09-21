@@ -839,9 +839,9 @@ body.offcanvas .colorlib-nav-toggle {
       border-color: #2fa499 transparent transparent transparent; }
   .services.color-6 .icon {
     background: #4054b2; }
-    .services.color-6 .icon:before {
+    .services.color-5 .icon:before {
       border-color: transparent transparent #4054b2 transparent; }
-    .services.color-6 .icon:after {
+    .services.color-2 .icon:after {
       border-color: #4054b2 transparent transparent transparent; }
 
 .progress-wrap h3 {
