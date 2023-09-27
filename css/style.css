@@ -258,7 +258,7 @@ figure {
   }
   
     .container-wrap {
-      max-width: 1370px;
+      max-width: auto;
       margin: 0 auto;
     }
     
