@@ -339,7 +339,7 @@ figure {
     }
     
     #colorlib-hero .flexslider .flex-direction-nav {
-      display: none;
+      display: auto;
     }
     
     #colorlib-hero .flexslider .slider-text {
