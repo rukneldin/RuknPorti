@@ -258,7 +258,7 @@ figure {
   }
   
     .container-wrap {
-      max-width: auto;
+      max-width: fixed;
       margin: 0 auto;
     }
     
@@ -278,7 +278,7 @@ figure {
     #colorlib-hero {
       min-height: 500px;
       background: #ffffff url(../images/loader.gif) no-repeat center center;
-      background-size: cover; /* Ensure the background image covers the container */
+      background-size: auto; /* Ensure the background image covers the container */
       width: 100%;
       float: left;
       margin-bottom: 10em;
