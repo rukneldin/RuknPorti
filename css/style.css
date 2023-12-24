@@ -230,7 +230,7 @@ figure {
     margin: 0;
     display: inline;
     list-style: none;
-    margin-right: 10px;
+    margin-right: 20px;
   }
   
   /* Add a separator between social icons */
@@ -254,7 +254,7 @@ figure {
   #colorlib-aside .colorlib-footer ul li a:focus {
     text-decoration: italic;
     outline: none;
-    color: #0c8af0;
+    color: #0cf0f0;
   }
   
     .container-wrap {
