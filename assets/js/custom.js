@@ -3,7 +3,7 @@ $(document).ready(function () {
 
     /**
      * Clients Section Carousel Logic
-     * - Ensures the active item is aligned with the CLIENT title above it.
+     * - Ensures the active item is centered.
      * - Applies blur and scale effects to carousel items.
      */
 
@@ -30,18 +30,17 @@ $(document).ready(function () {
             zIndex: 2                 // Bring active item to the front
         });
 
-        // Get the position of the CLIENT title
-        const clientTitleOffset = $(".section-heading").offset().top;
+        // Calculate the offset to center the active item
         const itemWidth = items.outerWidth(true);  // Include margin between items
         const gap = 30;  // Space between items
         const totalWidth = (itemWidth + gap) * totalItems; // Full width of the carousel items including gap
         const centerPosition = (window.innerWidth - itemWidth) / 2; // Center the active item on screen
 
-        // Calculate offset to align with CLIENT title
-        const offset = clientTitleOffset + 30 - (activeIndex * (itemWidth + gap));
+        // Adjust the carousel offset to keep the active item centered
+        const offset = (centerPosition - (activeIndex * (itemWidth + gap)));
 
         // Update carousel position using translateX for smooth scrolling
-        carousel.css("transform", `translateX(${offset - centerPosition}px)`);
+        carousel.css("transform", `translateX(${offset}px)`);
     }
 
     // Left navigation button functionality

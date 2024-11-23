@@ -1198,7 +1198,7 @@ span.single-timeline-horizontal.spacial-horizontal-line {
 /* Text Animation */
 /* Animation Section */
 .animation-section {
-    background: linear-gradient(135deg, #e55d87 0%, #5fc3e4 100%);
+    background: linear-gradient(135deg, #5ddce5 0%, #5fc3e4 100%);
     padding: 80px 0;
     text-align: center; /* Centers the text horizontally */
 }
