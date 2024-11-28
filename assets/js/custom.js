@@ -59,4 +59,128 @@ $(document).ready(function () {
 
     // Initialize the carousel with the default state
     updateCarousel();
+
+    // Contact form handling
+    $(document).ready(function() {
+        $('#send-message').on('click', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = $('#name').val();
+            const email = $('#email').val();
+            const subject = $('#subject').val();
+            const message = $('#comment').val();
+            
+            // Basic validation
+            if (!name || !email || !message) {
+                alert('Please fill in all required fields');
+                return;
+            }
+            
+            // Here you would typically send the data to your server
+            // For now, we'll just show an alert
+            alert('Message sent successfully!');
+            
+            // Clear the form
+            $('#contact-form')[0].reset();
+        });
+    });
+
+    // Rating Widget functionality
+    $(document).ready(function() {
+        const btn = document.querySelector("button");
+        const post = document.querySelector(".post");
+        const widget = document.querySelector(".star-widget");
+        const editBtn = document.querySelector(".edit");
+
+        btn.onclick = (e) => {
+            e.preventDefault();
+            widget.style.display = "none";
+            post.style.display = "block";
+            editBtn.onclick = () => {
+                widget.style.display = "block";
+                post.style.display = "none";
+            }
+            return false;
+        }
+    });
+
+    // Matrix rain effect
+    function setupMatrixRain() {
+        const canvas = document.getElementById('matrix-canvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()";
+        const fontSize = 14;
+        const columns = canvas.width / fontSize;
+        const drops = [];
+
+        for (let i = 0; i < columns; i++) {
+            drops[i] = 1;
+        }
+
+        function draw() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#0F0';
+            ctx.font = fontSize + 'px monospace';
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = characters.charAt(Math.floor(Math.random() * characters.length));
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        return setInterval(draw, 33);
+    }
+
+    // Loading sequence
+    window.addEventListener('load', function() {
+        const loaderWrapper = document.querySelector('.loader-wrapper');
+        const loadingStatus = document.querySelector('.loading-status');
+        const matrixInterval = setupMatrixRain();
+        
+        // Loading status messages
+        const statusMessages = [
+            "Accessing mainframe...",
+            "Bypassing security...",
+            "Decrypting data...",
+            "Establishing connection...",
+            "Access granted!"
+        ];
+
+        let messageIndex = 0;
+        
+        // Update status messages
+        const statusInterval = setInterval(() => {
+            if (messageIndex < statusMessages.length) {
+                loadingStatus.textContent = statusMessages[messageIndex];
+                messageIndex++;
+            }
+        }, 500);
+
+        // Complete loading sequence
+        setTimeout(() => {
+            clearInterval(statusInterval);
+            clearInterval(matrixInterval);
+            loaderWrapper.classList.add('fade-out');
+            
+            setTimeout(() => {
+                loaderWrapper.style.display = 'none';
+                document.body.style.overflow = 'visible';
+            }, 500);
+        }, 3000);
+    });
+
+    // Hide scrollbar during loading
+    document.body.style.overflow = 'hidden';
 });

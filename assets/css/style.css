@@ -1103,13 +1103,14 @@ span.single-timeline-horizontal.spacial-horizontal-line {
         width: 60px;
         height: 60px;
     }
-
-    .social-icon {
-        font-size: 30px;
+    
+    .social-icon a {
+        width: 40px;
+        height: 40px;
     }
-
-    .hm-foot-icon ul {
-        gap: 20px; /* Adjust spacing */
+    
+    .social-icon a .icon {
+        font-size: 16px;
     }
 }
 
@@ -1259,4 +1260,479 @@ h2:hover span:nth-child(3) {
     transform: translateY(-50%) scaleY(1);
 }
 
-/*========================Thank you=================
+/* Message Button Styles */
+.button-message {
+    position: relative;
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    outline-offset: 4px;
+    transition: filter 250ms;
+    user-select: none;
+    touch-action: manipulation;
+}
+
+.content {
+    padding: 12px 42px;
+    border-radius: 12px;
+    background: #00A97F;
+    color: white;
+    font-size: 1.1em;
+    min-width: 230px;
+    transform: translateY(-6px);
+    transition: transform 600ms cubic-bezier(.3, .7, .4, 1);
+}
+
+.button-message:hover {
+    filter: brightness(110%);
+}
+
+.button-message:hover .content {
+    transform: translateY(-8px);
+    transition: transform 250ms cubic-bezier(.3, .7, .4, 1.5);
+}
+
+.button-message:active .content {
+    transform: translateY(-2px);
+    transition: transform 34ms;
+}
+
+.icon {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%) translateX(-20px);
+    width: 24px;
+    height: 24px;
+    transition: transform 250ms cubic-bezier(.3, .7, .4, 1.5);
+}
+
+.button-message:hover .icon {
+    transform: translateY(-50%) translateX(-15px);
+}
+
+.button-message:active .icon {
+    transform: translateY(-50%) translateX(-25px);
+}
+
+.icon svg {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    fill: white;
+    width: 24px;
+    height: 24px;
+}
+
+/* Animated Download CV Button */
+.button {
+    position: relative;
+    padding: 16px 30px;
+    font-size: 1.5rem;
+    color: var(--color);
+    border: 2px solid rgba(0, 153, 255, 0.5);
+    border-radius: 4px;
+    text-shadow: 0 0 15px var(--color);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    transition: 0.5s;
+    z-index: 1;
+    --color: #0099ff;
+}
+
+.button:hover {
+    color: #fff;
+    border: 2px solid rgba(0, 153, 255, 0);
+    box-shadow: 0 0 0px var(--color);
+}
+
+.button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--color);
+    z-index: -1;
+    transform: scale(0);
+    transition: 0.5s;
+}
+
+.button:hover::before {
+    transform: scale(1);
+    transition-delay: 0.5s;
+    box-shadow: 0 0 10px var(--color),
+        0 0 30px var(--color),
+        0 0 60px var(--color);
+}
+
+.button span {
+    position: absolute;
+    background: var(--color);
+    pointer-events: none;
+    border-radius: 2px;
+    box-shadow: 0 0 10px var(--color),
+        0 0 20px var(--color),
+        0 0 30px var(--color),
+        0 0 50px var(--color),
+        0 0 100px var(--color);
+    transition: 0.5s ease-in-out;
+    transition-delay: 0.25s;
+}
+
+.button:hover span {
+    opacity: 0;
+    transition-delay: 0s;
+}
+
+.button span:nth-child(1),
+.button span:nth-child(3) {
+    width: 40px;
+    height: 4px;
+}
+
+.button:hover span:nth-child(1),
+.button:hover span:nth-child(3) {
+    transform: translateX(0);
+}
+
+.button span:nth-child(2),
+.button span:nth-child(4) {
+    width: 4px;
+    height: 40px;
+}
+
+.button:hover span:nth-child(2),
+.button:hover span:nth-child(4) {
+    transform: translateY(0);
+}
+
+.button span:nth-child(1) {
+    top: calc(50% - 2px);
+    left: -50px;
+    transform-origin: left;
+}
+
+.button:hover span:nth-child(1) {
+    left: 50%;
+}
+
+.button span:nth-child(3) {
+    top: calc(50% - 2px);
+    right: -50px;
+    transform-origin: right;
+}
+
+.button:hover span:nth-child(3) {
+    right: 50%;
+}
+
+.button span:nth-child(2) {
+    left: calc(50% - 2px);
+    top: -50px;
+    transform-origin: top;
+}
+
+.button:hover span:nth-child(2) {
+    top: 50%;
+}
+
+.button span:nth-child(4) {
+    left: calc(50% - 2px);
+    bottom: -50px;
+    transform-origin: bottom;
+}
+
+.button:hover span:nth-child(4) {
+    bottom: 50%;
+}
+
+/* Rating Section Styles */
+.rating-section {
+    padding: 50px 0;
+    background: #222;
+}
+
+.rating-container {
+    position: relative;
+    width: 400px;
+    background: #111;
+    padding: 20px 30px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.rating-container .post {
+    display: none;
+}
+
+.rating-container .text {
+    font-size: 25px;
+    color: #666;
+    font-weight: 500;
+}
+
+.rating-container .edit {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    font-size: 16px;
+    color: #666;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.rating-container .edit:hover {
+    text-decoration: underline;
+}
+
+.rating-container .star-widget input {
+    display: none;
+}
+
+.star-widget label {
+    font-size: 40px;
+    color: #444;
+    padding: 10px;
+    float: right;
+    transition: all 0.2s ease;
+}
+
+input:not(:checked) ~ label:hover,
+input:not(:checked) ~ label:hover ~ label {
+    color: #fd4;
+}
+
+input:checked ~ label {
+    color: #fd4;
+}
+
+input#rate-5:checked ~ label {
+    color: #fe7;
+    text-shadow: 0 0 20px #952;
+}
+
+#rate-1:checked ~ form header:before {
+    content: "I just hate it 😠";
+}
+
+#rate-2:checked ~ form header:before {
+    content: "I don't like it 😒";
+}
+
+#rate-3:checked ~ form header:before {
+    content: "It is awesome 😄";
+}
+
+#rate-4:checked ~ form header:before {
+    content: "I just like it 😎";
+}
+
+#rate-5:checked ~ form header:before {
+    content: "I just love it 😍";
+}
+
+.rating-container form {
+    display: none;
+}
+
+input:checked ~ form {
+    display: block;
+}
+
+form header {
+    width: 100%;
+    font-size: 25px;
+    color: #fe7;
+    font-weight: 500;
+    margin: 5px 0 20px 0;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+form .textarea {
+    height: 100px;
+    width: 100%;
+    overflow: hidden;
+}
+
+form .textarea textarea {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    color: #eee;
+    border: 1px solid #333;
+    background: #222;
+    padding: 10px;
+    font-size: 17px;
+    resize: none;
+}
+
+form .btn {
+    height: 45px;
+    width: 100%;
+    margin: 15px 0;
+}
+
+form .btn button {
+    height: 100%;
+    width: 100%;
+    border: 1px solid #444;
+    outline: none;
+    background: #222;
+    color: #999;
+    font-size: 17px;
+    font-weight: 500;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+form .btn button:hover {
+    background: #1b1b1b;
+}
+
+/* Loading Screen Styles */
+.loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    transition: opacity 0.5s ease-out;
+}
+
+#matrix-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.3;
+}
+
+.loader {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+/* Glitch Effect */
+.glitch-wrapper {
+    margin-bottom: 30px;
+}
+
+.glitch {
+    font-family: 'Courier New', monospace;
+    font-size: 48px;
+    font-weight: bold;
+    color: #0f0;
+    position: relative;
+    text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
+                 0.025em 0.04em 0 #fffc00;
+    animation: glitch 725ms infinite;
+}
+
+.glitch span {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Loading Text Styles */
+.loading-text {
+    font-family: 'Courier New', monospace;
+    color: #0f0;
+    text-align: center;
+}
+
+.loading-message {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+/* Progress Bar */
+.progress-bar {
+    width: 300px;
+    height: 20px;
+    background: #111;
+    border: 2px solid #0f0;
+    margin: 20px auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress {
+    width: 0%;
+    height: 100%;
+    background: #0f0;
+    position: absolute;
+    animation: progress 2s linear;
+    animation-fill-mode: forwards;
+}
+
+.loading-status {
+    min-height: 20px;
+    font-size: 14px;
+}
+
+/* Animations */
+@keyframes glitch {
+    0% {
+        text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
+                     0.025em 0.04em 0 #fffc00;
+    }
+    15% {
+        text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
+                     0.025em 0.04em 0 #fffc00;
+    }
+    30% {
+        text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
+                     0.025em 0.04em 0 #fffc00;
+    }
+    45% {
+        text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
+                     0.025em 0.04em 0 #fffc00;
+    }
+    60% {
+        text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
+                     0.025em 0.04em 0 #fffc00;
+    }
+    75% {
+        text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
+                     0.025em 0.04em 0 #fffc00;
+    }
+    90% {
+        text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
+                     0.025em 0.04em 0 #fffc00;
+    }
+    100% {
+        text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
+                     0.025em 0.04em 0 #fffc00;
+    }
+}
+
+/* Hide loader after page loads */
+.loader-wrapper.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Add this to ensure proper content visibility */
+body {
+    visibility: visible !important;
+    opacity: 1 !important;
+}
